@@ -1,11 +1,11 @@
 # alpha = ["a", "b", "c", "d", "e"]
-#
-# print(alpha)
-# print(alpha[3]) #indexing
-#
-# alpha[3] = "ball" #rename
-#
-# print(alpha[0:4])  #range
+
+print(alpha)
+print(alpha[3]) #indexing
+
+alpha[3] = "ball" #rename
+
+print(alpha[0:4])  #range
 
 
 # List methods
