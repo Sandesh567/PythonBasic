@@ -4,16 +4,26 @@ This cheatsheet provides quick and clear explanations of commonly used Python co
 
 ## Table of Contents
 
-1. [Variables](#variables)
-2. [Type Conversion](#type-conversion)
-3. [Data Types](#data-types)
-4. [Operators](#operators)
-5. [Statements](#statements)
-6. [List](#list)
-7. [Range](#range)
-8. [For Loops](#for-loops)
-9. [While Loops](#while-loops)
-10. [Tuples](#tuples)
+1.  Variables
+2.  Type Conversion
+3.  Data Types
+4.  Operators
+5.  Statements
+6.  List
+7.  Range
+8.  For Loops
+9.  While Loops
+10. Tuples
+11. Functions & Built-in Functions
+12. Recursion
+13. File I/O
+14. Class and Objects
+15. Methods
+16. Constructor
+17. Class and Instance Attributes
+18. Static Methods
+19. Encapsulation
+20. Abstraction
 
 ---
 
@@ -159,4 +169,283 @@ print(coordinates[0])  # 10
 Here:
 coordinates is a tuple containing two numbers.
 You can access elements in a tuple using indexing, but you cannot modify them after creation.
+
+## 11. Functions & Built-in Functions
+**Definition**: A function is a block of reusable code that performs a specific task. Python also provides built-in functions like len(), sum(), print(), etc.
+
+**Example**
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Sandesh"))
+
+Explanation:
+The function greet takes one parameter name and returns a greeting message. print() is a built-in function.
+
+## 12. Built-in functions
+
+**Example**
+numbers = [1, 2, 3, 4]
+print(len(numbers))     # Returns 4
+print(sum(numbers))     # Returns 10
+
+
+Explanation:
+len() gives number of elements, sum() gives the total.
+
+
+## 13. Recursion
+
+**Definition**: A function calling itself is known as recursion. Often used for tasks like factorial, Fibonacci, etc.
+
+**Example 1: Factorial**
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))  # 120
+
+Explanation:
+Each call reduces the problem by 1 until the base case (0) is reached.
+
+
+**Example 2: Fibonacci**
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(6))  # 8
+
+Explanation:
+Calculates Fibonacci recursively. Avoid for large n without optimization.
+
+
+## 14.  File I/O
+**Definition**: Python uses open(), read(), write() to perform input/output operations on files.
+
+**Example 1: Writing to a file**
+with open("data.txt", "w") as file:
+    file.write("Hello File!")
+    
+Explanation:
+Creates (or overwrites) a file and writes a string.
+
+**Example 2: Reading from a file**
+
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+    
+Explanation:
+Reads all contents from data.txt.
+
+## 15.Class and Objects
+**Definition**: A class is a blueprint for creating objects. An object is an instance of a class.
+
+**Example 1: Simple class**
+
+class Car:
+    def drive(self):
+        print("Car is moving")
+
+my_car = Car()
+my_car.drive()
+
+Explanation : Class Car has a method drive, which is called via object my_car.
+
+
+
+
+**Example 2: Class with attributes**
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+s1 = Student("Sandesh")
+print(s1.name)
+
+
+Explanation : __init__() initializes object attributes when an object is created.
+
+
+## 16.Methods
+
+ **Definition**:Functions defined in a class are called methods.
+
+**Example 1: Instance method**
+class Dog:
+    def bark(self):
+        print("Woof!")
+
+d = Dog()
+d.bark()
+Explanation : bark is an instance method called using object d.
+
+
+**Example 2: Method with arguments**
+
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+c = Calculator()
+print(c.add(3, 5))  # 8
+
+add takes two arguments and returns the sum.
+
+
+**17.Constructor**
+**Definition:** The __init__() method initializes a newly created object.
+
+**Example 1: Constructor with one attribute**
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+p = Person("Sandesh")
+print(p.name)
+
+**Example 2: Constructor with multiple attributes**
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+b = Book("Python", "Guido")
+print(b.title, b.author)
+Explanation:
+Constructors assign values to object attributes during object creation.
+
+**18.Class and Instance Attributes**
+**Definition:** Instance attributes are specific to each object.
+
+Class attributes are shared among all instances.
+
+**Example 1: Instance attribute**
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+s1 = Student("A")
+s2 = Student("B")
+print(s1.name, s2.name)
+
+Explanation:
+Each student has their own name.
+
+**Example 2: Class attribute**
+
+class School:
+    school_name = "ABC School"
+
+s1 = School()
+s2 = School()
+print(s1.school_name, s2.school_name)
+
+Explanation:
+Both objects share the same school_name.
+
+**19.Static Methods**
+**Definition:** @staticmethod defines a method that doesn’t access instance or class variables.
+
+**Example 1: Static method**
+class Math:
+    @staticmethod
+    def square(x):
+        return x * x
+
+print(Math.square(4))  # 16
+
+**Example 2: Utility method**
+
+class Utility:
+    @staticmethod
+    def greet():
+        print("Welcome!")
+
+Utility.greet()
+
+**Explanation:**
+Can be called without creating an object.
+
+**20.Encapsulation**
+**Definition:** Encapsulation hides the internal state of an object and restricts access.
+
+**Example 1: Using private variable**
+
+class Account:
+    def __init__(self):
+        self.__balance = 0
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+a = Account()
+a.deposit(100)
+print(a.get_balance())  # 100
+Explanation:
+__balance is private; can’t be accessed directly.
+
+**Example 2: Access via method**
+
+class Employee:
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+e = Employee("Sandesh")
+print(e.get_name())
+
+**.Abstraction**
+**Definition:** Abstraction hides unnecessary implementation details and shows only essentials. Achieved using abstract classes or interfaces.
+
+**Example 1: Abstract class (using abc)**
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+Explanation:
+Can't create object of abstract class.
+
+**Example 2: Implementing abstract class**
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+c = Circle(5)
+print(c.area())
+Explanation:
+Subclass must override area() or else it will error.
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
