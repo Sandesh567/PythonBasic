@@ -1,0 +1,23 @@
+#Create a class Account with a private attribute __balance. Add methods to deposit, 
+#withdraw, and check balance.
+class Account:
+    def __init__(self):
+        self.__balance = 0
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):
+        return self.__balance
+
+acc = Account()
+acc.deposit(1000)
+acc.withdraw(300)
+print(acc.get_balance())  # Output: 700
+
