@@ -1,0 +1,27 @@
+#Create a class Vehicle with a method move(). 
+#Then create a class Car that inherits from Vehicle and also has a method honk().
+
+class Vehicle:
+    def move(self):
+        print("Vehicle is moving")
+
+class Car(Vehicle):
+    def honk(self):
+        print("Car horn is sounding")
+
+my_car = Car()
+my_car.move()
+my_car.honk()
+
+
+#Override the move() method in the Car class to print “Car is driving”.
+class Vehicle:
+    def move(self):
+        print("Vehicle is moving")
+
+class Car(Vehicle):
+    def move(self):
+        print("Car is driving")
+
+my_car = Car()
+my_car.move()
