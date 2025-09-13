@@ -1,0 +1,14 @@
+class Bird:
+    def speak(self):
+        print("Chirp! Chirp!")
+
+class Cow:
+    def speak(self):
+        print("Moo! Moo!")
+
+def animal_sound(animal_list):
+    for animal in animal_list:
+        animal.speak()
+
+animals = [Bird(), Cow(), Dog()]
+animal_sound(animals)
